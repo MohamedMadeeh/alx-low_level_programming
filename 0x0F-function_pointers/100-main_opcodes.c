@@ -10,22 +10,28 @@
  */
 void print_opcodes(char *a, int n)
 {
-	int a;
+	int i;
 
-	for (c = 0; c < n; c++)
+	for (i = 0; i < n; i++)
 	{
-		printf("%.2hhx", a[c]);
-		if (c < n - 1)
+		printf("%.2hhx", a[i]);
+		if (i < n - 1)
 			printf(" ");
 	}
 	printf("\n");
 
 }
 
-
+/**
+ * main - prints the opcodes of its own main function
+ * @argc: number of arguments passed to the function
+ * @argv: array of pointers to arguments
+ *
+ * Return: always O
+ */
 int main(int argc, char **argv)
 {
-	int bytes;
+	int n;
 
 	if (argc != 2)
 	{
@@ -33,11 +39,11 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 	n = atoi(argv[1]);
-	if (bytes < 0)
+	if (n < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
-	print_opcodes((char *)&main, bytes);
+	print_opcodes((char *)&main, n);
 	return (0);
 }
